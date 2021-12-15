@@ -147,7 +147,6 @@ function fn_egov_modal_remove() {
                 <h2>내무서비스관리</h2>
                 <h3>내부업무게시판관리</h3>
                 <ul>
-                    <li><a href="/ebt_webapp/cop/com/selectTemplateInfs.do">게시판템플릿관리</a></li>
                     <li><a href="/ebt_webapp/cop/bbs/SelectBBSMasterInfs.do">게시판생성관리</a></li>
                     <li><a href="/ebt_webapp/cop/com/selectBBSUseInfs.do">게시판사용관리</a></li>
                     <li><a href="/ebt_webapp/cop/bbs/admin/selectBoardList.do?bbsId=BBSMSTR_AAAAAAAAAAAA">공지사항관리</a></li>
