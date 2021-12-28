@@ -349,7 +349,7 @@ function fn_egov_modal_remove() {
                                                     <form:input path="homeadres" id="zip_view" title="주소" maxlength="100" readonly="true" />
                                                     <form:errors path="homeadres" />
                                                     <form:hidden path="zip" />
-                                                    <button type="button" class="btn" onclick="javascript:fn_egov_ZipSearch(document.userManageVO, document.userManageVO.zip, document.userManageVO.zip_view, document.userManageVO.homeadres);">조회</button>
+                                                    <button type="button" class="btn" onclick="fn_egov_ZipSearch();">조회</button>
                                                 </span>
                                                 <span class="f_txt_inner ml15">(우편번호 검색)</span>
                                                 <form:errors path="zip" />

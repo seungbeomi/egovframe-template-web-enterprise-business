@@ -34,7 +34,6 @@
 <title>사용자 상세 및 수정</title>
 <script type="text/javascript" src="<c:url value="/validator.do"/>"></script>
 <validator:javascript formName="userManageVO" staticJavascript="false" xhtml="true" cdata="false"/>
-<script type="text/javascript" src="<c:url value='/js/EgovZipPopup.js' />" ></script>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 function fnListPage(){
@@ -76,6 +75,37 @@ function fn_egov_dn_info_setting(dn) {
     var frm = document.userManageVO;
     
     frm.subDn.value = dn;
+}
+
+function fn_egov_ZipSearch(){
+    
+    var $dialog = $('<div id="modalPan"></div>')
+	.html('<iframe style="border: 0px; " src="' + "<c:url value='/sym/cmm/EgovCcmZipSearchPopup.do'/>" +'" width="100%" height="100%"></iframe>')
+	.dialog({
+    	autoOpen: false,
+        modal: true,
+        width: 1050,
+        height: 530,
+        title: "우편번호 검색"
+	});
+    $(".ui-dialog-titlebar").hide();
+	$dialog.dialog('open');
+}
+
+function fn_egov_returnValue(retVal){
+	
+	if (retVal) {
+		document.getElementById("zip_view").value  = retVal.sAddr;
+	}
+	
+	fn_egov_modal_remove();
+}
+
+/**********************************************************
+ * 모달 종료 버튼
+ ******************************************************** */
+function fn_egov_modal_remove() {
+	$('#modalPan').remove();
 }
 //-->
 </script>
@@ -273,7 +303,7 @@ function fn_egov_dn_info_setting(dn) {
                                                     <form:errors path="homeadres" />
                                                     <input name="zip_view" id="zip_view" type="hidden" value="<c:out value='${userManageVO.zip}'/>" maxlength="8" readonly="readonly"/>
                                                     <form:hidden path="zip" />
-                                                    	<button type="button" class="btn" onclick="fn_egov_ZipSearch(document.userManageVO, document.userManageVO.zip, document.userManageVO.zip_view, document.userManageVO.homeadres);">조회</button>
+                                                    	<button type="button" class="btn" onclick="fn_egov_ZipSearch();">조회</button>
                                                     <form:errors path="zip" />
                                                 </span>
                                                 <span class="f_txt_inner ml15">(우편번호 검색)</span>
